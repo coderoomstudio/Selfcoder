@@ -14,8 +14,9 @@ Use it when you want:
 - code blocks with copy actions
 - context chips showing what Selfcoder may include
 - pinned files and manual attachments
+- explicit `@` context mentions for the next request
 - image attachments for vision-capable models
-- chat history and conversation resume
+- searchable chat history, editable names, favorites, and conversation branching
 - token usage visibility for local model context windows
 - a Chat, Plan, and Agent mode selector
 
@@ -41,6 +42,7 @@ Use the active file and diagnostics to help me fix this error.
 Review my current changes and call out likely regressions.
 ```
 
+
 ## Slash Commands
 
 The sidepanel composer supports slash commands when the first non-empty token starts with `/`.
@@ -57,6 +59,26 @@ Useful slash commands:
 Plan supports the safe local set shown above. Agent mode also supports `/compact`, `/summarize`, `/init`, and custom commands from `.opencode/commands/*.md` in each workspace folder.
 
 See [Slash Commands](slash-commands.md) for the full command list and custom command format.
+
+## `@` Mentions
+
+Use `@` mentions in the sidepanel composer when you want to choose explicit context for a single request.
+
+Typical uses:
+
+- include one file or a specific symbol instead of relying on automatic context
+- pass focused repository context such as codebase search or Git changes
+- include terminal output or diagnostics that matter for the current task
+
+Typical flow:
+
+1. In Chat, Plan, or Agent mode, type `@` in the composer.
+2. Choose the context items you want to include.
+3. Send your request.
+
+Mentions are request-scoped and clear from the composer after send. Use pinned files when you want context to persist across turns.
+
+See [Context and Attachments](context-and-attachments.md#choose-context-with--mentions) for mention categories, limits, and budgeting behavior.
 
 ## Model Selection
 
@@ -152,6 +174,7 @@ Agent mode adds:
 - change tracking with per-file `+N/-M` counts
 - in-editor diff visualization of the agent's edits
 - one-click revert for a single file or the whole session
+- single-level Undo last edit for the latest completed Agent edit
 - interactive permission prompts before sensitive actions
 
 Agent mode runs on the model you select in the sidepanel and the active backend, so agent work stays on your machine. The selected model must support tool use; if it does not, pick a tool-capable model before running the agent.

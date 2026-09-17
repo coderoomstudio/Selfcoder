@@ -117,6 +117,7 @@ Try:
 
 - selecting the relevant code before asking
 - pinning important files
+- selecting explicit context with `@file`, `@folder`, `@symbol`, `@git`, `@terminal`, or `@codebase`
 - attaching the exact log or error text
 - using a model with a larger context window
 - starting a new chat for a new topic
@@ -134,6 +135,23 @@ Less useful prompt:
 ```text
 Fix this project.
 ```
+
+## A Context Mention Is Missing Or Unavailable
+
+Check the omission notice shown for the selected mention. Mentions resolve when you send the request, so a deleted file, stale symbol, or closed terminal may no longer be available.
+
+- For `@symbol`, enter at least two characters and ensure your language extension provides workspace symbols.
+- For `@terminal`, run the command in a VS Code terminal with shell integration enabled while Selfcoder is active. Only observed command output is available; older scrollback is not captured. You can also attach the log as a text file.
+- For `@git`, make sure the repository has uncommitted text changes.
+- If a selection exceeds the available model budget, choose a smaller file or symbol, reduce the number of selections, or start a new conversation.
+
+Mentions apply to one request. Select them again for a later request, or pin a file for ongoing context. See [Context and Attachments](context-and-attachments.md#choose-context-with--mentions).
+
+## Undo Last Edit Is Missing Or Reports A Conflict
+
+Undo appears in the Agent change summary only when there is a safe snapshot for the latest completed edit. It has one level and does not survive a reload or restore from chat history.
+
+A conflict means a file no longer matches the state left by the Agent edit. Review that file's diff and reconcile the changes manually. See [Undo The Last Agent Edit](core-workflows.md#undo-the-last-agent-edit).
 
 ## Reasoning Is Not Showing
 

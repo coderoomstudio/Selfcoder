@@ -20,6 +20,12 @@ Slash commands are recognized only when they are the first non-empty token in th
 
 Chat and Plan expose commands Selfcoder can handle safely. Plan does not forward OpenCode or project-defined commands because they may select a mutation-capable agent. Agent includes the full supported command set and custom project commands.
 
+## Commands With Context Mentions
+
+Select `@` context mentions before running `/context [prompt]` to preview their contribution to the request. The preview keeps your selections in the composer. `/review` consumes selected mentions only when it sends a review request to the model.
+
+Commands forwarded to OpenCode, including custom project commands, cannot be combined with composer mentions. Selfcoder keeps those selections for a later normal prompt. See [Context and Attachments](context-and-attachments.md#choose-context-with--mentions) for selecting request context.
+
 ## Custom Project Commands
 
 In Agent mode, Selfcoder discovers custom commands from Markdown files in each workspace folder's `.opencode/commands/` directory.

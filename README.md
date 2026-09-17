@@ -23,7 +23,8 @@ This repository is the public home for Selfcoder documentation, Marketplace inst
 - Adds **Plan mode** for investigating a codebase and designing a solution without editing files or running terminal commands.
 - Includes **Agent mode** for implementing and verifying larger workspace tasks, with permission controls, change review, and revert.
 - Connects to models served by **LM Studio**, **Ollama**, **vLLM**, **llama.cpp**, and other OpenAI-compatible servers.
-- Supports model-aware workspace context, pinned files, attachments, and chat history.
+- Supports model-aware workspace context, pinned files, attachments, and explicit `@` mentions for files, folders, symbols, Git changes, terminal output, and codebase search.
+- Keeps searchable chat history with editable names and favorites, and lets you branch any assistant response into a new conversation.
 - Includes sidepanel slash commands for help, context preview, review, model listing, export, compaction, and project initialization.
 - Integrates with VS Code native chat through the `@Selfcoder` participant.
 - Exposes eligible configured models to the VS Code model picker.
